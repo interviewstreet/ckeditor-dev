@@ -1469,14 +1469,8 @@
 			// we drop image it will overwrite document.
 
 			editable.attachListener( dropTarget, 'dragover', function( evt ) {
-				// Edge requires this handler to have `preventDefault()` regardless of the situation.
-				if ( CKEDITOR.env.edge ) {
-					evt.data.preventDefault();
-					return;
-				}
 
 				var target = evt.data.getTarget();
-
 				// Prevent reloading page when dragging image on empty document (https://dev.ckeditor.com/ticket/12619).
 				if ( target && target.is && target.is( 'html' ) ) {
 					evt.data.preventDefault();
@@ -1488,7 +1482,7 @@
 				// if we prevent it the cursor will not we shown, so we prevent
 				// dragover only on IE, on versions which support file API and only
 				// if the event contains files.
-				if ( CKEDITOR.env.ie &&
+				if ( CKEDITOR.env.ie && !CKEDITOR.env.edge &&
 					CKEDITOR.plugins.clipboard.isFileApiSupported &&
 					evt.data.$.dataTransfer.types.contains( 'Files' ) ) {
 					evt.data.preventDefault();
