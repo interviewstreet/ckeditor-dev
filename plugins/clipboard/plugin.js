@@ -1601,7 +1601,7 @@
 					eventData.dropRange = range = dropRange;
 				}
 
-				while ( range.checkReadOnly() ) {
+				while ( range && range.checkReadOnly() ) {
 					element = range.startContainer.getParent();
 					offset = range.startContainer.getIndex() + 1;
 
