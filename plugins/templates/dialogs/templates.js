@@ -1,6 +1,6 @@
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+ * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
 ( function() {
@@ -65,7 +65,7 @@
 
 			if ( isReplace ) {
 				editor.fire( 'saveSnapshot' );
-				// Everything should happen after the document is loaded (https://dev.ckeditor.com/ticket/4073).
+				// Everything should happen after the document is loaded (http://dev.ckeditor.com/ticket/4073).
 				editor.setData( html, function() {
 					dialog.hide();
 
@@ -164,6 +164,7 @@
 						id: 'chkInsertOpt',
 						type: 'checkbox',
 						label: lang.insertOption,
+						style: 'top:0px;',
 						'default': config.templates_replaceContent
 					} ]
 				} ]
