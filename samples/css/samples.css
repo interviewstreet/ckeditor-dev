@@ -7,6 +7,19 @@
     display: none !important;
   }
 }
+.cke_button__textcolor{
+  overflow: hidden;
+  width: 0px;
+  visibility: hidden !important;
+  position: absolute !important;
+  left: 42%;
+}
+.cke_button__morestyles .cke_button_arrow{
+  display: none;
+}
+.cke_button__kebab_icon{
+  transform: scale(1.1);
+}
 article,
 aside,
 details,
