@@ -2,6 +2,10 @@
 ====================
 
 ## CKEditor 4.11.4.7
+- [#12](https://github.com/interviewstreet/ckeditor-dev/pull/12)
+  - Editorplaceholder plugin added to ckeditor. Now the ckeditor client can set placeholder string for the editor. 
+
+## CKEditor 4.11.4.7
 - [#11](https://github.com/interviewstreet/ckeditor-dev/pull/11)
   - Apply the passed `uiColor` as it is on the editor skin without filtering the color value.
 ## CKEditor 4.11.4.6
