@@ -7,13 +7,10 @@
  * @fileOverview Simple CKEditor 4 plugin that adds placeholder text to the editor.
  */
 (function () {
+	var ATTRIBUTE_NAME = "data-cke-editorplaceholder";
 	CKEDITOR.plugins.add("editorplaceholder", {
 		isSupportedEnvironment: function () {
 			return !CKEDITOR.env.ie || CKEDITOR.env.version >= 9;
-		},
-
-		onLoad: function () {
-			CKEDITOR.addCss(CKEDITOR.plugins.editorplaceholder.styles);
 		},
 
 		init: function (editor) {
@@ -34,42 +31,45 @@
 				"change",
 				editor.config.editorplaceholder_delay
 			);
+
+			var PLACEHOLDER_COLOR = editor.config.placeholder_color || "#61616b";
+
+			/**
+			 * Namespace providing the configuration for the Editor Placeholder plugin.
+			 *
+			 * @singleton
+			 * @class CKEDITOR.plugins.editorplaceholder
+			 * @since 4.15.0
+			 * @member CKEDITOR.plugins
+			 */
+			CKEDITOR.plugins.editorplaceholder = {
+				/**
+				 * Styles that would be applied to the editor by the placeholder text when visible.
+				 *
+				 * @property {String}
+				 */
+				styles:
+					"[" +
+					ATTRIBUTE_NAME +
+					"]::before {" +
+					"position: absolute;" +
+					"opacity: .8;" +
+					"color: " + PLACEHOLDER_COLOR + ";" +
+					"content: attr( " +
+					ATTRIBUTE_NAME +
+					" );" +
+					"}" +
+					".cke_wysiwyg_div[" +
+					ATTRIBUTE_NAME +
+					"]::before {" +
+					"margin-top: 1em;" +
+					"}",
+			};
+
+			CKEDITOR.addCss(CKEDITOR.plugins.editorplaceholder.styles);
+
 		},
 	});
-
-	var ATTRIBUTE_NAME = "data-cke-editorplaceholder";
-
-	/**
-	 * Namespace providing the configuration for the Editor Placeholder plugin.
-	 *
-	 * @singleton
-	 * @class CKEDITOR.plugins.editorplaceholder
-	 * @since 4.15.0
-	 * @member CKEDITOR.plugins
-	 */
-	CKEDITOR.plugins.editorplaceholder = {
-		/**
-		 * Styles that would be applied to the editor by the placeholder text when visible.
-		 *
-		 * @property {String}
-		 */
-		styles:
-			"[" +
-			ATTRIBUTE_NAME +
-			"]::before {" +
-			"position: absolute;" +
-			"opacity: .8;" +
-			"color: #aaa;" +
-			"content: attr( " +
-			ATTRIBUTE_NAME +
-			" );" +
-			"}" +
-			".cke_wysiwyg_div[" +
-			ATTRIBUTE_NAME +
-			"]::before {" +
-			"margin-top: 1em;" +
-			"}",
-	};
 
 	function bindPlaceholderEvent(editor, eventName, delay) {
 		var toggleFn = togglePlaceholder;
