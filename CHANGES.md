@@ -1,6 +1,10 @@
 ﻿CKEditor 4 Changelog
 ====================
 
+## CKEditor 4.11.4.12
+- [#15](https://github.com/interviewstreet/ckeditor-dev/pull/16)
+  - Added new content templates for accessiblity
+
 ## CKEditor 4.11.4.11
 - [#15](https://github.com/interviewstreet/ckeditor-dev/pull/15)
   - Added new languages for internationalization
