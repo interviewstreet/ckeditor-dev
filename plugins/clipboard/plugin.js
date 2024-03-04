@@ -157,6 +157,8 @@
 						data = dataObj.dataValue,
 						dataTransfer = dataObj.dataTransfer;
 
+					console.log("pasted Text - 1 >>> ", evt);
+
 					// If data empty check for image content inside data transfer. https://dev.ckeditor.com/ticket/16705
 					if ( !data && dataObj.method == 'paste' && dataTransfer && dataTransfer.getFilesCount() == 1 && latestId != dataTransfer.id ) {
 						var file = dataTransfer.getFile( 0 );
@@ -195,6 +197,8 @@
 				if ( !evt.data.dataTransfer ) {
 					evt.data.dataTransfer = new CKEDITOR.plugins.clipboard.dataTransfer();
 				}
+
+				console.log("pasted Text - 2 >>> ", evt);
 
 				// If dataValue is already set (manually or by paste bin), so do not override it.
 				if ( evt.data.dataValue ) {
@@ -624,6 +628,8 @@
 					if ( !editor.readOnly || evt.name != 'cut' ) {
 						clipboard.initPasteDataTransfer( evt, editor );
 					}
+					var copiedText = evt.data.$.clipboardData.getData( 'text/plain' );
+					console.log("copied text >>> ", copiedText);
 					evt.data.preventDefault();
 				};
 
