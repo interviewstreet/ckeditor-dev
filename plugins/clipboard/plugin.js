@@ -159,6 +159,7 @@
 
 					console.log("pasted Text - 1 >>> ", evt);
 
+
 					// If data empty check for image content inside data transfer. https://dev.ckeditor.com/ticket/16705
 					if ( !data && dataObj.method == 'paste' && dataTransfer && dataTransfer.getFilesCount() == 1 && latestId != dataTransfer.id ) {
 						var file = dataTransfer.getFile( 0 );
@@ -199,6 +200,7 @@
 				}
 
 				console.log("pasted Text - 2 >>> ", evt);
+				 editor.config.customCallback();
 
 				// If dataValue is already set (manually or by paste bin), so do not override it.
 				if ( evt.data.dataValue ) {
