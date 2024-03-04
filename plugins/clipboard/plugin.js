@@ -200,7 +200,7 @@
 				}
 
 				console.log("pasted Text - 2 >>> ", evt);
-				 editor.config.customCallback();
+				editor.config.customCallback();
 
 				// If dataValue is already set (manually or by paste bin), so do not override it.
 				if ( evt.data.dataValue ) {
