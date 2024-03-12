@@ -157,7 +157,8 @@
 						data = dataObj.dataValue,
 						dataTransfer = dataObj.dataTransfer;
 
-					console.log("pasted Text - 1 >>> ", evt);
+					var pastedText = evt.data.dataTransfer.getData( 'text/plain' );
+					console.log("pasted Text - 1 >>> ", pastedText);
 
 
 					// If data empty check for image content inside data transfer. https://dev.ckeditor.com/ticket/16705
@@ -199,9 +200,12 @@
 					evt.data.dataTransfer = new CKEDITOR.plugins.clipboard.dataTransfer();
 				}
 
-				console.log("pasted Text - 2 >>> ", evt);
-				editor.config.customCallback();
 
+				var pastedText = evt.data.dataTransfer.getData( 'text/plain' );
+				var onPasteCallback = editor.config.onPasteCallback;
+				if (typeof onPasteCallback === 'function') {
+					onPasteCallback(pastedText);
+				}
 				// If dataValue is already set (manually or by paste bin), so do not override it.
 				if ( evt.data.dataValue ) {
 					return;
@@ -631,7 +635,10 @@
 						clipboard.initPasteDataTransfer( evt, editor );
 					}
 					var copiedText = evt.data.$.clipboardData.getData( 'text/plain' );
-					console.log("copied text >>> ", copiedText);
+					var onCopyCallback = editor.config.onCopyCallback;
+					if (typeof onCopyCallback === 'function') {
+						onCopyCallback(copiedText);
+					}
 					evt.data.preventDefault();
 				};
 
