@@ -158,7 +158,10 @@
 						dataTransfer = dataObj.dataTransfer;
 
 					var pastedText = evt.data.dataTransfer.getData( 'text/plain' );
-					console.log("pasted Text - 1 >>> ", pastedText);
+					var onPasteCallback = editor.config.onPasteCallback;
+					if (typeof onPasteCallback === 'function') {
+						onPasteCallback(pastedText);
+					}
 
 
 					// If data empty check for image content inside data transfer. https://dev.ckeditor.com/ticket/16705
