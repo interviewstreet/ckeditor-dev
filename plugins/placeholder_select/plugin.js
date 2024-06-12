@@ -17,9 +17,12 @@ CKEDITOR.plugins.add('placeholder_select',
       //  array of placeholders to choose from that'll be inserted into the editor
       var placeholders = [];
 
+      // instances
+      var editorInstance = CKEDITOR.instances["problem-description"];
+
       // init the default config - empty placeholders
       var defaultConfig = {
-        contentsCss: [],
+        contentsCss: editorInstance ? editorInstance['config']['contentsCSS'] : [],
         className: '',
         format: '[[%placeholder%]]',
         placeholders: [],
