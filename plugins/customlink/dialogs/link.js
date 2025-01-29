@@ -435,7 +435,7 @@
                   .$.click();
               },
 			 onError: function(event) {
-				alert('Error uploading file');
+				alert('Error uploading file ');
 			 }
             },
 
