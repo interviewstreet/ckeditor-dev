@@ -273,7 +273,7 @@
  * @cfg {String} [font_names=see source]
  * @member CKEDITOR.config
  */
-CKEDITOR.config.font_names = 'Satoshi, OpenSans, arial, sans-serif;' +
+CKEDITOR.config.font_names = 'Satoshi, Open Sans, Arial, sans-serif;' +
 	'Arial/Arial, Helvetica, sans-serif;' +
 	'Comic Sans MS/Comic Sans MS, cursive;' +
 	'Courier New/Courier New, Courier, monospace;' +
@@ -294,7 +294,7 @@ CKEDITOR.config.font_names = 'Satoshi, OpenSans, arial, sans-serif;' +
  * @cfg {String} [font_defaultLabel='']
  * @member CKEDITOR.config
  */
-CKEDITOR.config.font_defaultLabel = 'Satoshi';
+CKEDITOR.config.font_defaultLabel = '';
 
 /**
  * The style definition to be used to apply the font in the text.
