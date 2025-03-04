@@ -273,7 +273,8 @@
  * @cfg {String} [font_names=see source]
  * @member CKEDITOR.config
  */
-CKEDITOR.config.font_names = 'Arial/Arial, Helvetica, sans-serif;' +
+CKEDITOR.config.font_names = 'Satoshi, Open Sans, Arial, sans-serif;' +
+	'Arial/Arial, Helvetica, sans-serif;' +
 	'Comic Sans MS/Comic Sans MS, cursive;' +
 	'Courier New/Courier New, Courier, monospace;' +
 	'Georgia/Georgia, serif;' +
